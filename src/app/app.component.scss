@@ -1,0 +1,57 @@
+
+.bbb{
+  svg{
+     color: yellow;
+     border-radius: 50%;
+     transform: scale(1.5) translateY(-50%)  ;
+
+  }
+}
+.time{
+  // background-color: rgba(0, 0, 0, 0.153);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.main-content{
+  background-image: url(../assets/space.jpg);
+  background-position: center center;
+  background-size: cover;
+  min-height: 100vh;
+  padding-bottom: 10%;
+}
+footer{
+  position: fixed;
+  width: auto;
+  bottom: 10px;
+  column-gap: 10%;
+  margin: 20px;
+  font-size: 30px;
+  background-color: rgba(255, 255, 255, 0.167);
+  z-index: 2;
+  svg,i{
+    width: 25px;
+    height: 25px;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    background: linear-gradient(0.25turn, #3f87a669, #ebf8e168, #f69c3c63);
+    transition:transform 400ms   ;
+    -webkit-transition:transform 400ms   ;
+    -moz-transition:transform 400ms   ;
+    -ms-transition:transform 400ms   ;
+    -o-transition:transform 400ms   ;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+  a {
+    transition:transform 3s 3s ease-in-out  ;
+    -webkit-transition:transform 3s 3s ease-in-out  ;
+    -moz-transition:transform 3s 3s ease-in-out  ;
+    -ms-transition:transform 3s 3s ease-in-out  ;
+    -o-transition:transform 3s 3s ease-in-out  ;
+  }
+}

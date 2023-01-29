@@ -1,0 +1,64 @@
+<div class="container ">
+  <h2 style="font-family: 'Teko', sans-serif;">Your Bookmark </h2>
+<!-- ----- start Adding new link --------->
+
+<div *ngIf="isUpdate==true" class="form text-start text-dark p-3 ">
+  <form [formGroup]="link" (ngSubmit)="addingNew(link)">
+    <label class="font my-2" for="name">Name</label>
+    <input placeholder="Website name" class="form-control " id="name" formControlName="name" type="text">
+
+    <label class="font my-2" for="url">URL</label>
+    <input placeholder="www.ex.com" class="form-control " id="url" formControlName="url" type="text">
+    <div class=" my-2 d-flex justify-content-around  mt-2 w-100">
+      <button  (click)="changeStatus();" type="button" class="btn px-3 py-2 mt-2 btn-danger font" >Cancel </button>
+      <button  type="submit" class="btn btn-success px-3 py-2 font mt-2" [disabled]="link.invalid">Create</button>
+    </div>
+  </form>
+</div>
+<!-- ----- end Adding new link --------->
+<!-- -------- start Manage links -------- -->
+<div *ngIf="isManage==true" class="form-manage row text-start  w-100 h-100 ">
+  <div class="col-md-4 col-xs-3 left my-3">
+    <h4 class="mark-list my-2 font">Your Bookmarks</h4>
+    <div class="py-2 my-1 px-2 mx-3 rounded" *ngFor="let item of linksContainer ,let i=index">
+      <img class="lol" [src]="'https://'+item.url+'/favicon.ico'" alt="">
+      <button type="button" (click)="currUpdate(item)"  class="btn text-light font" > {{item.name}}</button>
+    </div>
+  </div>
+  <div   class="col-md-8 col-xs-6 right text-dark py-4">
+    <h1 class="font">Update</h1>
+    <form [formGroup]="link" (ngSubmit)="addingChange(link)">
+      <label class="font" for="name">Name</label>
+      <input [(ngModel)]="currName" value="Google" class="form-control" id="name" formControlName="name" type="text">
+
+      <label class="font" for="url">URL</label>
+      <input [(ngModel)]="currURL" value="www.google.com" class="form-control" id="url" formControlName="url" type="text">
+      <div class="btns my-2 d-flex justify-content-between w-100 my-5">
+        <button (click)="manage();defult()" type="button" class="btn btn-dark font">Cancel </button>
+        <button (click)="delete()" type="button" class="btn btn-danger font">Delete</button>
+        <button  type="submit" class="btn btn-success font" [disabled]="link.invalid">Update </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- -------- end Manage links -------- -->
+<!-- -------- start links -------- -->
+<div *ngIf="isManage==false" class="link d-flex flex-column   my-5" >
+  <div class="link   d-flex flex-wrap " *ngIf="isUpdate==false" >
+    <div class="link-item  p-2 mx-1 my-2 rounded" *ngFor="let item of linksContainer">
+      <img class="lol" [src]="'http://'+item.url+'/favicon.ico'" alt="">
+      <a class="font text-light" target="_blank" [href]="'https://'+item.url"> {{item.name}}</a>
+    </div>
+
+  </div>
+
+  <div class="add d-flex mx-2 my-5 px-1">
+    <button class="btn btn-warning mx-3 pb-2 font" (click)="changeStatus()" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
+
+
+    <button (click)="manage()" class="btn btn-dark btn-warning pb-2 font"><i class="fa-solid fa-gear  fs-large px-1 "></i> Manage</button>
+  </div>
+</div>
+<!-- -------- end links -------- -->
+
+</div>

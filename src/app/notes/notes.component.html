@@ -1,0 +1,63 @@
+<div class="container  position-relative d-flex flex-column align-items-center">
+
+<h2 class="pt-2" style="font-family: 'Teko', sans-serif; ">Your Notes</h2>
+<!-- ----- start Adding new note --------->
+
+<div *ngIf="isUpdate==true"  class="form text-start text-light p-3 position-absolute">
+  <h1 class="font text-success">Adding new note</h1>
+  <form [formGroup]="note" (ngSubmit)="addingNew(note)">
+
+    <label class="font" for="name">Name</label>
+    <input placeholder="Note title"  value="Google" class="form-control" id="name" formControlName="name" type="text">
+
+    <label  class="font" for="desc">Description</label>
+    <textarea placeholder="Note description" class="form-control" name="desc" id="desc" formControlName="desc" cols="10" rows="10"></textarea>
+    <div class="btns my-2 d-flex justify-content-between w-100">
+      <button  (click)="changeStatus()" type="button" class="font submit-new btn btn-warning mx-5">Cancel adding</button>
+      <button (click)="defult()" [disabled]="note.invalid" type="submit" class="font submit-new btn btn-success  pb-2  mx-5">Create Note</button>
+    </div>
+  </form>
+</div>
+<!-- ----- end Adding new note --------->
+
+<!-- -------- start Manage notes -------- -->
+<div *ngIf="isManage==true" class="form-manage row text-start   ">
+
+  <div   class="col-md-12 right text-light py-4">
+    <h1 class="font text-danger">Update</h1>
+    <form [formGroup]="note" (ngSubmit)="addingChange(note)">
+      <label class="font my-2" for="name">Name</label>
+      <input [(ngModel)]="currName" value="Google" class="form-control" id="name" formControlName="name" type="text">
+
+      <label class="font my-2" for="url">Description</label>
+      <textarea [(ngModel)]="currURL" class="form-control" name="" id="" formControlName="desc" cols="10" rows="10"></textarea>
+    <!-- <input  value="www.google.com" class="form-control" id="url" formControlName="url" type="text"> -->
+      <div class="btns my-2 d-flex justify-content-between w-100 my-5">
+        <div class="l">
+          <button (click)="manage();defult();" type="button" class="btn btn-warning font">Cancel Edit</button>
+          <button (click)="delete()" type="button" class="btn btn-danger mx-3 font">Delete</button>
+        </div>
+        <button (click)="delete()" type="submit" class="btn btn-success font" [disabled]="note.invalid">Save Edit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- -------- end Manage notes -------- -->
+<!-- -------- start notes -------- -->
+<div class="note d-flex flex-column" >
+  <div  (click)="manage()" class="note "  >
+    <div  class="note-item  p-2 mx-1 my-2 rounded" *ngFor="let item of notesContainer ,let i=index">
+      <button type="button" class="btn w-100 text-light font" (click)="currUpdate(item)" > {{item.name}}</button>
+    </div>
+
+  </div>
+
+  <div class="add d-flex mb-2 mt-5">
+    <button class="add-new btn btn-dark mx-3 pb-2 font" (click)="changeStatus()" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
+
+
+  </div>
+</div>
+<!-- -------- end notes -------- -->
+
+</div>

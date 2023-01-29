@@ -1,0 +1,20 @@
+<div class="row main-content w-100 text-light  bg-dark  justify-content-center align-items-start m-0 pt-5">
+  <div class="col-md-8 ss row flex-column align-items-center justify-content-center">
+    <div class="time col-sm-6 col-md-5 d-flex flex-column align-items-center py-3">
+      <h2 class="h1 text-warning font">{{date|date:'shortTime'}}</h2>
+      <p class="h5 font">{{date|date : 'mediumDate'  }}</p>
+    </div>
+    <main class=" text-center col-md-8 mt-3 ">
+      <router-outlet></router-outlet>
+    </main>
+
+    <footer class="  p-2 rounded  d-flex justify-content-center">
+
+     <div class="a ">
+      <a routerLinkActive=" bbb" routerLink="/bookmark"> <i class=" fa-regular fa-bookmark m-2 p-2  "></i> </a>
+      <a routerLinkActive=" bbb" routerLink="/notes"> <i class="fa-solid fa-notes-medical m-2 p-2"></i></a>
+      <a routerLinkActive=" bbb" routerLink="/projects"><i class=" fa-solid fa-list-check m-2 p-2 "></i></a>
+     </div>
+    </footer>
+  </div>
+</div>
