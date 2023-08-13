@@ -64,7 +64,6 @@ export class NotesComponent implements OnInit {
     this.notesContainer.splice(x,1);
     localStorage.setItem('notes',JSON.stringify(this.notesContainer));
     setTimeout(()=>{
-      // this.manage();
       this.defult();
   },0)
   }
