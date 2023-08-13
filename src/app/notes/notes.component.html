@@ -1,4 +1,4 @@
-<div class="container  position-relative d-flex flex-column align-items-center">
+<div class="container   position-relative d-flex flex-column align-items-center ">
 
 <h2 class="pt-2" style="font-family: 'Teko', sans-serif; ">Your Notes</h2>
 <!-- ----- start Adding new note --------->
@@ -33,7 +33,7 @@
       <textarea [(ngModel)]="currURL" class="form-control" name="" id="" formControlName="desc" cols="10" rows="10"></textarea>
     <!-- <input  value="www.google.com" class="form-control" id="url" formControlName="url" type="text"> -->
       <div class="btns my-2 d-flex justify-content-between w-100 my-5">
-        <div class="l">
+        <div class="l btns-manage">
           <button (click)="manage();defult();" type="button" class="btn btn-warning font">Cancel Edit</button>
           <button (click)="delete()" type="button" class="btn btn-danger mx-3 font">Delete</button>
         </div>
@@ -43,20 +43,20 @@
   </div>
 </div>
 <!-- -------- end Manage notes -------- -->
-<!-- -------- start notes -------- -->
-<div class="note d-flex flex-column" >
-  <div  (click)="manage()" class="note "  >
+<!-- -------- start notes (all notes preview)-------- -->
+<div class="note d-flex " >
+  <div  (click)="manage()" class="d-flex w-100 flex-wrap "  >
     <div  class="note-item  p-2 mx-1 my-2 rounded" *ngFor="let item of notesContainer ,let i=index">
       <button type="button" class="btn w-100 text-light font" (click)="currUpdate(item)" > {{item.name}}</button>
     </div>
 
   </div>
 
-  <div class="add d-flex mb-2 mt-5">
-    <button class="add-new btn btn-dark mx-3 pb-2 font" (click)="changeStatus()" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
+</div>
+<div class="add d-flex mb-2 mt-5">
+  <button class="add-new btn btn-dark mx-3 pb-2 font" (click)="changeStatus()" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
 
 
-  </div>
 </div>
 <!-- -------- end notes -------- -->
 
