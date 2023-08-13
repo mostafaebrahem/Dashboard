@@ -46,7 +46,7 @@
 
   <!-- -------- start viewing links -------- -->
   <div *ngIf="isManage==false" class="link d-flex flex-column   my-5" >
-    <div class="link   d-flex flex-wrap " *ngIf="isUpdate==false" >
+    <div class="   d-flex flex-wrap " *ngIf="isUpdate==false" >
       <div class="link-item  p-2 mx-1 my-2 rounded" *ngFor="let item of linksContainer">
         <img class="lol" [src]="'http://'+item.url+'/favicon.ico'" alt="">
         <a class="font text-light" target="_blank" [href]="'https://'+item.url"> {{item.name}}</a>
