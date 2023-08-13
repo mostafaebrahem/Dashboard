@@ -1,3 +1,6 @@
+*{
+  box-sizing: border-box;
+}
 .form{
   background-color: rgba(9, 9, 9, 0.863);
   border-radius: 5px;
@@ -17,14 +20,19 @@ a{
   text-decoration: none;
 
 }
-
+.link{
+  height: 35vh;
+  overflow: auto;
+}
 .lol{
   width: 20px;
   height: 20px;
 }
 .form-manage{
+  display: flex;
   background-color: rgba(0, 0, 0, 0.863);
-  z-index: 9999;
+
+  height: 40vh;
   border-radius:10px ;
   -webkit-border-radius:10px ;
   -moz-border-radius:10px ;
@@ -32,10 +40,17 @@ a{
   -o-border-radius:10px ;
 }
 .left{
+  // padding: 0%;
   min-width: 10%;
   min-height: 50px;
+  height: 100%;
+  overflow: auto;
+
   border-right: solid 1px #e3e3e3;
 }
+// .left::-webkit-scrollbar{
+//   width: px;
+// }
 .right{
   background-color: rgba(250, 235, 215, 0.845);
 }
@@ -44,9 +59,21 @@ a{
 }
 .mark-list::after{
   content: "";
-  left: -10px;
+  left: -12px;
+  top:0px;
   position: absolute;
   background-color: chartreuse;
   width: 5px;
   height: 100%;
+}
+@media screen and (max-width:688px) {
+  .form-manage{
+    position: absolute;
+    top: 5%;
+    left: 0px;
+    right: 0;
+  }
+  .left{
+    height: 30vh;
+  }
 }
