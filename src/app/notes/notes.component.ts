@@ -39,7 +39,8 @@ export class NotesComponent implements OnInit {
   }
   addingChange(formInfo:FormGroup){
     console.log(formInfo.value);
-    this.notesContainer.push(formInfo.value);
+    this.notesContainer[this.currIndex]=formInfo.value;
+    // this.notesContainer.push(formInfo.value);
     localStorage.setItem('notes',JSON.stringify(this.notesContainer))
     setTimeout(()=>{
         this.manage();
@@ -53,8 +54,9 @@ export class NotesComponent implements OnInit {
     this.isManage=!this.isManage;
     console.log(this.isManage)
   }
-  currUpdate(currInfo:any){
-    console.log(currInfo);
+  currUpdate(currInfo:any,index:number){
+    console.log(currInfo,index);
+    this.currIndex=index;
     this.currItem=currInfo;
     this.currName=currInfo.name;
     this.currURL=currInfo.desc;

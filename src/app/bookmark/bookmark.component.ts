@@ -12,6 +12,7 @@ export class BookmarkComponent implements OnInit {
   currName:string='';
   currURL:string='';
   currIndex:number=-1;
+
   currItem:{}={};
   linksContainer:any[];
   link:FormGroup=new FormGroup({
@@ -40,8 +41,10 @@ export class BookmarkComponent implements OnInit {
   }
   addingChange(formInfo:FormGroup){
     console.log(formInfo.value);
-    this.linksContainer.push(formInfo.value);
+    this.linksContainer[this.currIndex]=formInfo.value;
+    // this.linksContainer.push(formInfo.value);
     localStorage.setItem('links',JSON.stringify(this.linksContainer))
+    this.defult()
     setTimeout(()=>{
         this.manage();
     },0)
@@ -55,8 +58,9 @@ export class BookmarkComponent implements OnInit {
     this.isManage=!this.isManage;
     console.log(this.isManage)
   }
-  currUpdate(currInfo:any){
-    console.log(currInfo);
+  currUpdate(currInfo:any,index:number){
+    console.log(currInfo,index);
+    this.currIndex=index;
     this.currItem=currInfo;
     this.currName=currInfo.name;
     this.currURL=currInfo.url;
@@ -65,7 +69,7 @@ export class BookmarkComponent implements OnInit {
     let x= this.linksContainer.indexOf(this.currItem);
     this.linksContainer.splice(x,1);
     localStorage.setItem('links',JSON.stringify(this.linksContainer));
-
+    this.defult()
   }
   defult(){
     this.currIndex=-1;

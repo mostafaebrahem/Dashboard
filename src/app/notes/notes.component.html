@@ -31,13 +31,13 @@
 
       <label class="font my-2" for="url">Description</label>
       <textarea [(ngModel)]="currURL" class="form-control" name="" id="" formControlName="desc" cols="10" rows="10"></textarea>
-   
+
       <div class="btns my-2 d-flex justify-content-between w-100 my-5">
         <div class="l btns-manage">
           <button (click)="manage();defult();" type="button" class="btn btn-warning font">Cancel Edit</button>
-          <button (click)="delete()" type="button" class="btn btn-danger mx-3 font">Delete</button>
+          <button (click)="manage();delete()" type="button" class="btn btn-danger mx-3 font">Delete</button>
         </div>
-        <button (click)="delete()" type="submit" class="btn btn-success font" [disabled]="note.invalid">Save Edit</button>
+        <button  type="submit" class="btn btn-success font" [disabled]="note.invalid">Save Edit</button>
       </div>
     </form>
   </div>
@@ -45,16 +45,16 @@
 <!-- -------- end Manage notes -------- -->
 <!-- -------- start notes (all notes preview)-------- -->
 <div class="note d-flex " >
-  <div  (click)="manage()" class="d-flex w-100 flex-wrap "  >
+  <div   class="d-flex w-100 flex-wrap "  >
     <div  class="note-item  p-2 mx-1 my-2 rounded" *ngFor="let item of notesContainer ,let i=index">
-      <button type="button" class="btn w-100 text-light font" (click)="currUpdate(item)" > {{item.name}}</button>
+      <button type="button" class="btn w-100 text-light font" (click)="currUpdate(item,i);manage()" > {{item.name}}</button>
     </div>
 
   </div>
 
 </div>
 <div class="add d-flex mb-2 mt-5">
-  <button class="add-new btn btn-dark mx-3 pb-2 font" (click)="changeStatus()" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
+  <button class="add-new btn btn-dark mx-3 pb-2 font" (click)="defult();changeStatus();" ><i class="fa-solid fa-plus px-2 fs-large"></i>Add new</button>
 
 
 </div>
